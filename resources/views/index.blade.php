@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="w-full flex justify-center items-center h-screen">
-        <div class="w-[40%] bg-slate-600 p-4">
+        <div class="w-[40%] bg-slate-600 p-4 rounded rounded-xl">
             <h1 class="text-center text-white text-2xl font-bold mb-4">Rapportage downloaden</h1>
             <div class="grid grid-cols-2">
                 <label for="start-date" class="text-white">Van</label>
