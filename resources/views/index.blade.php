@@ -18,8 +18,15 @@
                 <input type="date" id="end-date" class="block mx-auto my-2 p-2 rounded-lg border border-gray-300 ">
                 <label for="country" class="text-white">Country</label>
                 <select id="country" class="block mx-auto my-2 p-2 rounded-lg border border-gray-300 ">
-                    <option selected disabled>bedrijf</option>
-                    <option value="US">United States</option>
+                    @if ($tags->isNotEmpty())
+                    @foreach ($tags as $tag)
+                    <option>{{ $tag->tag }}</option>
+
+                    @endforeach
+
+                    @endif
+                    {{-- <option selected disabled>bedrijf</option>
+                    <option value="US">United States</option> --}}
                 </select>
             </div>
             <div class="w-full text-center">

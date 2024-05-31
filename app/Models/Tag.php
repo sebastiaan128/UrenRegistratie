@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
-    protected $table = 'agenda';
+    protected $table = 'tags';
     protected $primaryKey = 'tag_id';
-    protected $fillable = 'tag';
+    protected $fillable = ['tag'];
     public $timestamps = true;
     use HasFactory;
 }

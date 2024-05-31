@@ -6,10 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\Tag;
 
-
-class tagsController extends Controller
+class TagsController extends Controller
 {
-
     public function index()
     {
         $secretKey = getenv('SECRET_KEY');
@@ -22,20 +20,26 @@ class tagsController extends Controller
 
         $connection = $response->json();
 
-        // Check if 'data' key exists and is an array
         if (isset($connection['data']) && is_array($connection['data'])) {
             foreach ($connection['data'] as $item) {
-                // Controleer of de tag al bestaat, zo niet, maak een nieuwe aan
                 Tag::updateOrCreate(
                     ['tag' => $item['name']],
                     ['created_at' => now(), 'updated_at' => now()]
                 );
             }
+            $tags = Tag::all();
 
-            return response()->json(['message' => 'Tags fetched and stored successfully.']);
+
+            return view('index', ['message' => 'Tags fetched and stored successfully.', 'tags' => $tags]);
+
         } else {
-            return response()->json(['error' => 'Data key not found or is not an array'], 400);
+            return view('index', ['error' => 'Something went wrong']);
         }
     }
-    
 }
+
+
+
+
+
+?>
