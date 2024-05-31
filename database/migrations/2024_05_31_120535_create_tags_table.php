@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('tags', function (Blueprint $table) {
             $table->id('tag_id');
             $table->string('tag');
+            $table->string('team_id');
             $table->timestamps();
         });
     }

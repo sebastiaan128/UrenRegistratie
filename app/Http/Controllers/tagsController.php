@@ -23,7 +23,7 @@ class TagsController extends Controller
         if (isset($connection['data']) && is_array($connection['data'])) {
             foreach ($connection['data'] as $item) {
                 Tag::updateOrCreate(
-                    ['tag' => $item['name']],
+                    ['tag' => $item['name'] ,'team_id'=> $item['team_id'] ],
                     ['created_at' => now(), 'updated_at' => now()]
                 );
             }
