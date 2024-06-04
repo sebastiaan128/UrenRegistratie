@@ -23,11 +23,9 @@ class AuthController extends Controller
     $credentials = $request->only('email', 'password');
 
     if (Auth::attempt($credentials)) {
-        // Redirect to the home route if login is successful
-        return redirect(route('home'))->with('success', 'Login successful');
+        return redirect(route('index'))->with('success', 'Login successful');
     }
 
-    // Redirect back to login with an error message if login fails
     return redirect(route('login'))->with('error', 'These credentials do not match our records.');
 }
 
