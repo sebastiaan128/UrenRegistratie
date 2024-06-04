@@ -10,5 +10,5 @@ Route::middleware("auth")->group(function(){
     Route::get('index', [tagsController::class, 'index'])->name('index');
 });
 
-Route::get("/login", [AuthController::class, "login"])->name('login');
-Route::post("/login", [AuthController::class, "loginPost"])->name("login.post");
+Route::get("/", [AuthController::class, "login"])->name('login');
+Route::post("/", [AuthController::class, "loginPost"])->name("login.post");
