@@ -19,6 +19,7 @@ class TagsController extends Controller
         ])->get("https://api.clickup.com/api/v2/team/{$TEAM_ID}/time_entries/tags?");
 
         $connection = $response->json();
+        // dd($connection);
 
         if (isset($connection['data']) && is_array($connection['data'])) {
             foreach ($connection['data'] as $item) {
