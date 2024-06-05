@@ -10,8 +10,9 @@ use App\Http\Controllers\getHoursController;
 Route::middleware("auth")->group(function(){
     Route::get('welcome', [HomeController::class, 'index'])->name('home');
     Route::get('index', [tagsController::class, 'index'])->name('index');
-    Route::get('refresh-employe', [tagsController::class, 'index'])->name('index');
-    Route::post("/get-tags", [tagsController::class, "refreshTagsData"])->name("refreshTagsData");
+    Route::get("/get-tags", [tagsController::class, "refreshTagsData"])->name("refreshTagsData");
+    Route::get("/get-employe", [getHoursController::class, "getEmployees"])->name("getEmployees");
+    Route::post("/get-hours", [getHoursController::class, "getHours"])->name("filterUren");
 
 });
 

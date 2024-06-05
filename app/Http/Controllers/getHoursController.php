@@ -39,7 +39,7 @@ class getHoursController extends Controller
             'Content-Type' => 'application/json',
             'Authorization' => $secretKey
         ])->get("https://api.clickup.com/api/v2/team");
-    
+
         $connection = $response->json();
         if (isset($connection['teams']) && is_array($connection['teams'])) {
             foreach ($connection['teams'] as $team) {
@@ -58,13 +58,10 @@ class getHoursController extends Controller
                     }
                 }
             }
-            // Uncomment the following lines if you want to fetch and return tags, and send success message
-            // $tags = Tag::all();
-            // return view('index', ['message' => 'Employees fetched and stored successfully.', 'tags' => $tags]);
+            return redirect()->route('index')->with(['message' => 'Tags fetched and stored successfully.']);
         } else {
-            // Uncomment the following line if you want to send an error message
-            // return view('index', ['error' => 'Something went wrong']);
+            return redirect()->route('index')->with('error', 'Something went wrong');
         }
     }
-    
+
 }

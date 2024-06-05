@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-  
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\Tag;
@@ -34,15 +34,10 @@ class TagsController extends Controller
                 );
             }
             $tags = Tag::all();
-            return view('index', ['message' => 'Tags fetched and stored successfully.', 'tags' => $tags]);
+            return redirect()->route('index')->with(['message' => 'Tags fetched and stored successfully.']);
         } else {
-            return view('index', ['error' => 'Something went wrong']);
+            return redirect()->route('index')->with('error', 'Something went wrong');
         }
-    }
+
 }
-
-
-
-
-
-?>
+}
