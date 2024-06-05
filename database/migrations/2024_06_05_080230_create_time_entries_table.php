@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('time_entries', function (Blueprint $table) {
             $table->id();
-            $table->string('tag');
+            $table->string('tag')->nullable();
             $table->string('task_id');
             $table->string('user_id');
             $table->string('task');

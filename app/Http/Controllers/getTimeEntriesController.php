@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\Http;
 
 
 
-class HomeController extends Controller
+class getTimeEntriesController extends Controller
 {
-    public function index()
-    {
+    // refresh  time entreis table
+
+    public function getTimeEntreis(){
         $employees = employees::all();
         $userIds = $employees->pluck('user_id')->toArray();
         $userIdsString = implode(',', $userIds);        $secretKey = getenv('SECRET_KEY');
@@ -21,7 +22,6 @@ class HomeController extends Controller
             ])->get("https://api.clickup.com/api/v2/team/9015496442/time_entries?assignee=$userIdsString&include_task_tags=true");
     
         $connection = $response->json();
-        dd($connection);
+
     }
 }
-

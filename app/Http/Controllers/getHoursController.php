@@ -32,6 +32,7 @@ class getHoursController extends Controller
             return view('index', ['error' => 'Something went wrong']);
         }
     }
+    // refresh  Employees table
     public function getEmployees(){
         $secretKey = getenv('SECRET_KEY');
         $response = Http::withHeaders([

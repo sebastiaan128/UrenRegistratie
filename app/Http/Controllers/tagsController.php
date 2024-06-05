@@ -10,6 +10,13 @@ class TagsController extends Controller
 {
     public function index()
     {
+
+            $tags = Tag::all();
+            return view('index', ['message' => 'Tags fetched and stored successfully.', 'tags' => $tags]);
+
+    }
+    //// refresh  tags table
+    public function refreshTagsData(){
         $secretKey = getenv('SECRET_KEY');
         $TEAM_ID = getenv('TEAM_ID');
 
