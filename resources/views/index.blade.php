@@ -12,7 +12,7 @@
     <div class="w-full text-center">
         <div class="w-full flex justify-center items-center min-h-screen">
             <div class="w-11/12 sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-5/12 bg-slate-600 p-8 sm:p-10 rounded-xl">
-                <a href="{{ route('getEmployees') }}" class="block bg-blue-500 text-black hover:bg-black hover:text-white font-bold my-2 py-2 px-4 rounded">&#x21BB; Time Entries</a>
+                <a href="{{ route('getTimeEntries') }}" class="block bg-blue-500 text-black hover:bg-black hover:text-white font-bold my-2 py-2 px-4 rounded">&#x21BB; Time Entries</a>
                 <a href="{{ route('refreshTagsData') }}" class="block bg-blue-500 text-black hover:bg-black hover:text-white font-bold my-2 py-2 px-4 rounded">&#x21BB; Tags</a>
                 <a href="{{ route('getEmployees') }}" class="block bg-blue-500 text-black hover:bg-black hover:text-white font-bold my-2 py-2 px-4 rounded">&#x21BB; Users</a>
 
