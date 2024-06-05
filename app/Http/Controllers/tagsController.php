@@ -19,8 +19,6 @@ class TagsController extends Controller
         ])->get("https://api.clickup.com/api/v2/team/{$TEAM_ID}/time_entries/tags?");
 
         $connection = $response->json();
-        // dd($connection);
-
         if (isset($connection['data']) && is_array($connection['data'])) {
             foreach ($connection['data'] as $item) {
                 Tag::updateOrCreate(
@@ -29,10 +27,7 @@ class TagsController extends Controller
                 );
             }
             $tags = Tag::all();
-
-
             return view('index', ['message' => 'Tags fetched and stored successfully.', 'tags' => $tags]);
-
         } else {
             return view('index', ['error' => 'Something went wrong']);
         }
