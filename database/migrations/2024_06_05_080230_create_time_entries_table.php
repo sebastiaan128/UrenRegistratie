@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('task');
             $table->string('duration');
             $table->boolean('bilable');
-            $table->string('start_date');
-            $table->string('end_date');
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
             $table->timestamps();
         });
     }
