@@ -8,8 +8,12 @@
     <title>UrenRegistratie</title>
 </head>
 <body>
+    <div class="w-full text-center">
     <div class="w-full flex justify-center items-center h-screen">
         <div class="w-[40%] bg-slate-600 p-20 rounded-xl">
+            <button class="w-[25%] bg-blue-500 text-black hover:bg-black hover:text-white font-bold my-10 mx-5 py-2 px-4 rounded" type="submit">Time Entries</button>
+            <button class="w-[25%] bg-blue-500 text-black hover:bg-black hover:text-white font-bold my-10 mx-5 py-2 px-4 rounded" type="submit">Tags</button>
+            <button class="w-[25%] bg-blue-500 text-black hover:bg-black hover:text-white font-bold my-10 mx-5 py-2 px-4 rounded" type="submit">Users</button>
             <h1 class="text-center text-white text-2xl font-bold mb-6">Rapportage downloaden</h1>
             <form action="{{ route('filterUren') }}" method="post">
                @csrf
@@ -32,7 +36,7 @@
                     </select>
                 </div>
                 <div class="w-full text-center">
-                <button type="submit" class="w-[35%] bg-blue-500 text-white font-bold mt-10 py-2 px-4 rounded">
+                <button type="submit" class="w-[35%] bg-blue-500 text-white hover:bg-pink-500 font-bold mt-10 py-2 px-4 rounded">
                     Download PDF
                 </button>
                 </div>
