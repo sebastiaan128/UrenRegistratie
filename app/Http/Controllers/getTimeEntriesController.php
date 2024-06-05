@@ -49,8 +49,8 @@ class getTimeEntriesController extends Controller
                         'tag' => $tagsString,
                         'task' => $task['name'],
                         'duration' => $entry['duration'],
-                        'bilable' => date('Y-m-d H:i:s',$entry['billable'] / 1000),
-                        'start_date' => date('H:i:s', $entry['start'] / 1000), // Convert to date format
+                        'bilable' => $entry['billable'],
+                        'start_date' => date('Y-m-d H:i:s', $entry['start'] / 1000), // Convert to date format
                         'end_date' => date('Y-m-d H:i:s', $entry['end'] / 1000), 
                         'created_at' => now(),
                         'updated_at' => now()

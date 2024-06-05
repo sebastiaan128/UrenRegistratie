@@ -35,7 +35,7 @@
                             @endif
                         </select>
                         
-                        <label for="country" class="text-white">Employees</label>
+                        {{-- <label for="country" class="text-white">Employees</label>
                         <select id="country" class="block w-full p-2 rounded-lg border border-gray-300">
                             @if ($employees->isNotEmpty())
                             @foreach ($employees as $username)
@@ -57,7 +57,7 @@
                         <select id="is_billable" class="block w-full p-2 rounded-lg border border-gray-300">
                             <option value="true">Ja</option>
                             <option value="false">Nee</option>
-                        </select>
+                        </select> --}}
 
                     </div>
                     <div class="w-full text-center mt-6">
