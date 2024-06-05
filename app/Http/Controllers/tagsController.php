@@ -5,16 +5,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\Tag;
+use App\Models\employees;
+use App\Models\timeEntries;
 
 class TagsController extends Controller
 {
     public function index()
-    {
+{
+    $tags = Tag::all();
+    $employees = employees::all();
+    $time_entries = timeEntries::all();
 
-            $tags = Tag::all();
-            return view('index', ['message' => 'Tags fetched and stored successfully.', 'tags' => $tags]);
+    return view('index', [
+        'message' => 'Tags fetched and stored successfully.',
+        'tags' => $tags,
+        'employees' => $employees,
+        'time_entries' => $time_entries,
+    ]);
+}
 
-    }
     //// refresh  tags table
     public function refreshTagsData(){
         $secretKey = getenv('SECRET_KEY');
