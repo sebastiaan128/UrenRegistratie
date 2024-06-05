@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('tag');
             $table->string('task_id');
+            $table->string('user_id');
             $table->string('task');
             $table->string('duration');
             $table->boolean('bilable');
