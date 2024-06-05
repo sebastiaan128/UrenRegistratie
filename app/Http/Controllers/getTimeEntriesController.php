@@ -42,7 +42,7 @@ class getTimeEntriesController extends Controller
 
                 TimeEntries::updateOrCreate(
                     [
-                        'task_id' => $entry['id'], 
+                        'task_id' => $task['id'], 
                         'user_id' => $user['id']
                     ],
                     [
@@ -50,8 +50,8 @@ class getTimeEntriesController extends Controller
                         'task' => $task['name'],
                         'duration' => $entry['duration'],
                         'bilable' => $entry['billable'],
-                        'start_date' => $entry['start'],
-                        'end_date' => $entry['end'],
+                        'start_date' => date('Y-m-d H:i:s', $entry['start'] / 1000), // Convert to date format
+                        'end_date' => date('Y-m-d H:i:s', $entry['end'] / 1000), 
                         'created_at' => now(),
                         'updated_at' => now()
                     ]
