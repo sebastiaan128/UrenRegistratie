@@ -24,7 +24,7 @@ class getHoursController extends Controller
                 }
         
                 $timeEntries = $query->get();
-                if($timeEntries == !""){
+                if (!$timeEntries->isEmpty()) {
                     return response()->json($timeEntries);
                     $pdf = PDF::loadView('pdf.timeEntries', [
                    'timeEntries' => $timeEntries
