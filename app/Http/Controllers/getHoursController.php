@@ -25,11 +25,11 @@ class getHoursController extends Controller
         
                 $timeEntries = $query->get();
                 if (!$timeEntries->isEmpty()) {
-                    return response()->json($timeEntries);
+                    //return response()->json($timeEntries);
                 //     $pdf = PDF::loadView('pdf.timeEntries', [
                 //    'timeEntries' => $timeEntries
                 //     ]);
-                return view('pdf.timeEntreis',[
+                return view('pdf.timeEntries',[
                     'timeEntries' => $timeEntries
                 ]);
     
