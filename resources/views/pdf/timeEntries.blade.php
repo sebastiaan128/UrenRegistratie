@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Time Entries PDF</title>
-    <link rel="icon" type="image/svg+xml" href="https://developing.nl/wp-content/uploads/2023/02/icon.png" />
+        <link rel="icon" type="image/svg+xml" href="https://developing.nl/wp-content/uploads/2023/02/icon.png" />
 
     <style>
         body {

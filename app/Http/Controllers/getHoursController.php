@@ -22,7 +22,7 @@ class getHoursController extends Controller
                 if ($tag) {
                     $query->where('tag', 'LIKE', '%' . $tag . '%');
                 }
-        
+
                 $timeEntries = $query->get();
                 if (!$timeEntries->isEmpty()) {
                     //return response()->json($timeEntries);
@@ -32,13 +32,13 @@ class getHoursController extends Controller
                 return view('pdf.timeEntries',[
                     'timeEntries' => $timeEntries
                 ]);
-    
+
                 //    return $pdf->download('urenregistratie.pdf');
 
                 }else {
                     return redirect()->back()->with('error',' Er is niet op deze datums voor deze klant gewerkt.');
                 }
-        
+
 
         } else {
 
@@ -46,8 +46,8 @@ class getHoursController extends Controller
         }
 
 
-    
-        
+
+
         // $secretKey = getenv('SECRET_KEY');
         // $TEAM_ID = getenv('TEAM_ID');
         // $response = Http::withHeaders([
