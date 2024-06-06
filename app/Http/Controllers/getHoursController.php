@@ -26,11 +26,14 @@ class getHoursController extends Controller
                 $timeEntries = $query->get();
                 if (!$timeEntries->isEmpty()) {
                     return response()->json($timeEntries);
-                    $pdf = PDF::loadView('pdf.timeEntries', [
-                   'timeEntries' => $timeEntries
-                    ]);
+                //     $pdf = PDF::loadView('pdf.timeEntries', [
+                //    'timeEntries' => $timeEntries
+                //     ]);
+                return view('pdf.timeEntreis',[
+                    'timeEntries' => $timeEntries
+                ]);
     
-                   return $pdf->download('urenregistratie.pdf');
+                //    return $pdf->download('urenregistratie.pdf');
 
                 }else {
                     return redirect()->back()->with('error',' Er is niet op deze datums voor deze klant gewerkt.');
