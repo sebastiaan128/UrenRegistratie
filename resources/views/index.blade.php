@@ -18,19 +18,37 @@
 
                 <h1 class="text-center text-white text-2xl font-bold mt-6 mb-4">Rapportage downloaden</h1>
                 <form action="{{ route('filterUren') }}" method="post">
+                    @if (session('error'))
+                    <div id="alert-box" class="bg-red-100 border border-red-400 text-red-700 px-4 mb-4 py-3 rounded relative" role="alert">
+                        <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                            <svg onclick="closeAlert()" class="fill-current h-6 w-6 text-red-500 cursor-pointer" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <title>Close</title>
+                                <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/>
+                            </svg>
+                        </span>
+                        {{ session('error') }}
+                    </div>
+                @endif
+                
+                <script>
+                    function closeAlert() {
+                        document.getElementById('alert-box').style.display = 'none';
+                    }
+                </script>
+                
                     @csrf
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <label for="start-date" class="text-white">Van</label>
-                        <input type="date" id="start-date" name="start_date" class="block w-full p-2 rounded-lg border border-gray-300" required>
+                        <input type="date" id="start-date" name="start_date" class="block w-full p-2 rounded-lg border border-gray-300">
                 
                         <label for="end-date" class="text-white">Tot</label>
-                        <input type="date" id="end-date" name="end_date" class="block w-full p-2 rounded-lg border border-gray-300" required>
+                        <input type="date" id="end-date" name="end_date" class="block w-full p-2 rounded-lg border border-gray-300">
                 
                         <label for="country" class="text-white">Tag</label>
-                        <select id="country" name="tag" class="block w-full p-2 rounded-lg border border-gray-300" required>
+                        <select id="country" name="tag" class="block w-full p-2 rounded-lg border border-gray-300">
                             @if ($tags->isNotEmpty())
                             @foreach ($tags as $tag)
-                            <option value="{{ $tag->tag }}">{{ $tag->tag }}</option>
+                            <option>{{ $tag->tag }}</option>
                             @endforeach
                             @endif
                         </select>
