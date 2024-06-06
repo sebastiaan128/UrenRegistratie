@@ -21,13 +21,13 @@
                     @csrf
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <label for="start-date" class="text-white">Van</label>
-                        <input type="date" id="start-date" class="block w-full p-2 rounded-lg border border-gray-300">
-
+                        <input type="date" id="start-date" name="start_date" class="block w-full p-2 rounded-lg border border-gray-300">
+                
                         <label for="end-date" class="text-white">Tot</label>
-                        <input type="date" id="end-date" class="block w-full p-2 rounded-lg border border-gray-300">
-
+                        <input type="date" id="end-date" name="end_date" class="block w-full p-2 rounded-lg border border-gray-300">
+                
                         <label for="country" class="text-white">Tag</label>
-                        <select id="country" class="block w-full p-2 rounded-lg border border-gray-300">
+                        <select id="country" name="tag" class="block w-full p-2 rounded-lg border border-gray-300">
                             @if ($tags->isNotEmpty())
                             @foreach ($tags as $tag)
                             <option>{{ $tag->tag }}</option>
@@ -35,37 +35,37 @@
                             @endif
                         </select>
                         
-                        {{-- <label for="country" class="text-white">Employees</label>
-                        <select id="country" class="block w-full p-2 rounded-lg border border-gray-300">
+                        {{-- Uncomment and add name attributes for additional fields as needed --}}
+                        {{-- <label for="employees" class="text-white">Employees</label>
+                        <select id="employees" name="employee" class="block w-full p-2 rounded-lg border border-gray-300">
                             @if ($employees->isNotEmpty())
                             @foreach ($employees as $username)
                             <option>{{ $username->username }}</option>
                             @endforeach
                             @endif
                         </select>
-
-                        <label for="country" class="text-white">Task</label>
-                        <select id="country" class="block w-full p-2 rounded-lg border border-gray-300">
+                
+                        <label for="task" class="text-white">Task</label>
+                        <select id="task" name="task" class="block w-full p-2 rounded-lg border border-gray-300">
                             @if ($time_entries->isNotEmpty())
                             @foreach ($time_entries as $task)
                             <option>{{ $task->task }}</option>
                             @endforeach
                             @endif
                         </select>
-
+                
                         <label for="is_billable" class="text-white">Is Billable</label>
-                        <select id="is_billable" class="block w-full p-2 rounded-lg border border-gray-300">
+                        <select id="is_billable" name="is_billable" class="block w-full p-2 rounded-lg border border-gray-300">
                             <option value="true">Ja</option>
                             <option value="false">Nee</option>
                         </select> --}}
-
                     </div>
                     <div class="w-full text-center mt-6">
                         <button type="submit" class="w-[35%] sm:w-[40%] bg-blue-500 text-white hover:bg-pink-500 font-bold py-2 px-4 rounded">
                             Download PDF
                         </button>
                     </div>
-                </form>
+                </form>                
             </div>
         </div>
     </div>
