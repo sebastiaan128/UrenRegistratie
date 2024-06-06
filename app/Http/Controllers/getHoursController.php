@@ -6,13 +6,44 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\employees;
+use App\Models\timeEntries;
+
 
 class getHoursController extends Controller
 {
     public function getHours(Request $request)
     {
-        $data = $request->all();
-        dd($data);
+        $start_date = $request->start_date;
+        $end_date = $request->end_date;
+        $tag = $request->tag;
+        if ($start_date && $end_date) {
+              $query = timeEntries::where('start_date', '>=', $start_date)
+                ->where('end_date', '<=', $end_date);
+                if ($tag) {
+                    $query->where('tag', 'LIKE', '%' . $tag . '%');
+                }
+        
+                $timeEntries = $query->get();
+                if($timeEntries == !""){
+                    return response()->json($timeEntries);
+                    $pdf = PDF::loadView('pdf.timeEntries', [
+                   'timeEntries' => $timeEntries
+                    ]);
+    
+                   return $pdf->download('urenregistratie.pdf');
+
+                }else {
+                    return redirect()->back()->with('error',' Er is niet op deze datums voor deze klant gewerkt.');
+                }
+        
+
+        } else {
+
+            return redirect()->back()->with('error',' Selecteer eerst een datum en een tag.');
+        }
+
+
+    
         
         // $secretKey = getenv('SECRET_KEY');
         // $TEAM_ID = getenv('TEAM_ID');

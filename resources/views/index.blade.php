@@ -21,16 +21,16 @@
                     @csrf
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <label for="start-date" class="text-white">Van</label>
-                        <input type="date" id="start-date" name="start_date" class="block w-full p-2 rounded-lg border border-gray-300">
+                        <input type="date" id="start-date" name="start_date" class="block w-full p-2 rounded-lg border border-gray-300" required>
                 
                         <label for="end-date" class="text-white">Tot</label>
-                        <input type="date" id="end-date" name="end_date" class="block w-full p-2 rounded-lg border border-gray-300">
+                        <input type="date" id="end-date" name="end_date" class="block w-full p-2 rounded-lg border border-gray-300" required>
                 
                         <label for="country" class="text-white">Tag</label>
-                        <select id="country" name="tag" class="block w-full p-2 rounded-lg border border-gray-300">
+                        <select id="country" name="tag" class="block w-full p-2 rounded-lg border border-gray-300" required>
                             @if ($tags->isNotEmpty())
                             @foreach ($tags as $tag)
-                            <option>{{ $tag->tag }}</option>
+                            <option value="{{ $tag->tag }}">{{ $tag->tag }}</option>
                             @endforeach
                             @endif
                         </select>
